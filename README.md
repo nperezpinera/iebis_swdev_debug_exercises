@@ -24,6 +24,8 @@ In this code there is a class called WordAnalyzer that contains several methods 
 For some reason, the methods are not working properly, sometimes they return the correct value and others don't. You need to answer the next questions.
 
 #### Why the method _firstMultipleCharacter_ is returning "c" for the word _comprehensive_, when the correct answer should be "e"?
+  The simple solution to this problem is switching the greater or equal to 0 sign in the if statement to only a greater than sign. That way you need more than one letter to be repeated before it is returned in char ch. Here is the fixed code:
+  > if (find(ch, i) > 0)
 #### Why the method _firstRepeatedCharacter_ is throwing an exception?
 #### Why the method _countGroupsRepeatedCharacters_ returns 3 in one case when it should be 4?
 
