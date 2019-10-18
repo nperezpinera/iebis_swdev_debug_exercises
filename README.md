@@ -35,7 +35,8 @@ For some reason, the methods are not working properly, sometimes they return the
   
   This was tested multiple times and worked with the following "words": Hollow, vroom, vimm. In all cases, the adjacent letters were correctly identified.
 #### Why the method _countGroupsRepeatedCharacters_ returns 3 in one case when it should be 4?
-
+  This function will not work with words in which the first letter is a repeated group. For example, mississippi will correctly give out 3 groups, but eel and llama will return 0. This is due to the fact that in the for loop, int i is made equal to 1, thus ignoring the first character of the input. The solution would be making int i = 0, like so:
+  > for (int i = 0; i < word.length() - 1; i++)
 **Strategy**: Place breakpoints before the methods are executed, step into them and see what happens.
 
 
