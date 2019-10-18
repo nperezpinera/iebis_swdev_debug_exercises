@@ -24,8 +24,8 @@ In this code there is a class called WordAnalyzer that contains several methods 
 For some reason, the methods are not working properly, sometimes they return the correct value and others don't. You need to answer the next questions.
 
 #### Why the method _firstMultipleCharacter_ is returning "c" for the word _comprehensive_, when the correct answer should be "e"?
-  The simple solution to this problem is switching the greater or equal to 0 sign in the if statement to only a greater than sign. That way you need more than one letter to be repeated before it is returned in char ch. Here is the fixed code:
-  > if (find(ch, i) > 0)
+  The reason for c being returned is inside the private int find function. In the for loop, i is made equal to pos, so the first letter will always be returned by this function because it is equal to its own position in the word. To solve this, all one needs to do is add 1 to int i in the for loop, like so:
+  > for (int i = pos + 1; i < word.length(); i++)
 #### Why the method _firstRepeatedCharacter_ is throwing an exception?
 #### Why the method _countGroupsRepeatedCharacters_ returns 3 in one case when it should be 4?
 
