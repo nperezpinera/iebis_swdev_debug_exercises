@@ -38,18 +38,16 @@ For some reason, the methods are not working properly, sometimes they return the
   This function will not work with words in which the first letter is a repeated group. For example, mississippi will correctly give out 3 groups, but eel and llama will return 0. This is due to the fact that in the for loop, int i is made equal to 1, thus ignoring the first character of the input. The solution would be making int i = 0, like so:
   > for (int i = 0; i < word.length() - 1; i++)
   
-  This however causes another error in the function that ensures that repeated groups can contain more than 2 adjacent letters, which uses (i - 1) as a parameter. To solve this next issue, an if and else statement was created. If i is not equal to 0, the process remains unchanged, but if it is equal to 0, the aforementioned part of the statement is ignored, allowing for the first letter to be considered. This is the resulting code:
-  > for (int i = 0; i < word.length() - 1; i++) {
-                if (word.charAt(i) == word.charAt(i + 1)) // found a repetition
-                {
-                    if (i != 0) {
+  This however causes another error in the function that ensures that repeated groups can contain more than 2 adjacent letters, which uses (i - 1) as a parameter. To solve this next issue, an if and else statement was created. If i is not equal to 0, the process remains unchanged, but if it is equal to 0, the aforementioned part of the statement is ignored, allowing for the first letter to be considered. This is the modification that was made:
+  > if (i != 0) {
                         if (word.charAt(i - 1) != word.charAt(i)) // it't the start
                             c++;
                     } else {
                         c++;
                     }
-            }
-        }
+                    
+                    Since it is inside the repetition for loop, it will only do c++ if the first letter is repeated, so it won't just add 1 to c for every first letter. That would be a lazy solution.
+        
 **Strategy**: Place breakpoints before the methods are executed, step into them and see what happens.
 
 
