@@ -46,7 +46,7 @@ For some reason, the methods are not working properly, sometimes they return the
                         c++;
                     }
                     
-                    Since it is inside the repetition for loop, it will only do c++ if the first letter is repeated, so it won't just add 1 to c for every first letter. That would be a lazy solution.
+  Since it is inside the repetition for loop, it will only do c++ if the first letter is repeated, so it won't just add 1 to c for every first letter. That would be a lazy solution.
         
 **Strategy**: Place breakpoints before the methods are executed, step into them and see what happens.
 
