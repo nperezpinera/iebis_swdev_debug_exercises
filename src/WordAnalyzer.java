@@ -63,10 +63,14 @@ public class WordAnalyzer {
     public int countGroupsRepeatedCharacters() {
         int c = 0;
         for (int i = 0; i < word.length() - 1; i++) {
-            if (word.charAt(i) == word.charAt(i + 1)) // found a repetition
-            {
-                if (word.charAt(i - 1) != word.charAt(i)) // it't the start
-                    c++;
+                if (word.charAt(i) == word.charAt(i + 1)) // found a repetition
+                {
+                    if (i != 0) {
+                        if (word.charAt(i - 1) != word.charAt(i)) // it't the start
+                            c++;
+                    } else {
+                        c++;
+                    }
             }
         }
         return c;
