@@ -29,8 +29,10 @@ For some reason, the methods are not working properly, sometimes they return the
 #### Why the method _firstRepeatedCharacter_ is throwing an exception?
   The exception that is being shown is an out of bounds exception, meaning that a item in a position outside of the array is being called. In this case, this occurs here:
   > if (ch == word.charAt(i + 1))
+  
   In order to solve this, the for loop has to be modified so that it is not allowed to run outside of the word's length, and this can be done by subtracting 1 from word.length(), like so:
   > for (int i = 0; i < word.length()-1; i++)
+  
   This was tested multiple times and worked with the following "words": Hollow, vroom, vimm. In all cases, the adjacent letters were correctly identified.
 #### Why the method _countGroupsRepeatedCharacters_ returns 3 in one case when it should be 4?
 
