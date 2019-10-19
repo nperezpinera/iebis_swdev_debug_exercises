@@ -27,6 +27,7 @@ For some reason, the methods are not working properly, sometimes they return the
   The reason for c being returned is inside the private int find function. In the for loop, i is made equal to pos, so the first letter will always be returned by this function because it is equal to its own position in the word. To solve this, all one needs to do is add 1 to int i in the for loop, like so:
   > for (int i = pos + 1; i < word.length(); i++)
 #### Why the method _firstRepeatedCharacter_ is throwing an exception?
+
   The exception that is being shown is an out of bounds exception, meaning that a item in a position outside of the array is being called. In this case, this occurs here:
   > if (ch == word.charAt(i + 1))
   
