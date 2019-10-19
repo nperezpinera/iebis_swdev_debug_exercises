@@ -26,8 +26,8 @@ For some reason, the methods are not working properly, sometimes they return the
 #### Why the method _firstMultipleCharacter_ is returning "c" for the word _comprehensive_, when the correct answer should be "e"?
   The reason for c being returned is inside the private int find function. In the for loop, i is made equal to pos, so the first letter will always be returned by this function because it is equal to its own position in the word. To solve this, all one needs to do is add 1 to int i in the for loop, like so:
   > for (int i = pos + 1; i < word.length(); i++)
+  
 #### Why the method _firstRepeatedCharacter_ is throwing an exception?
-
   The exception that is being shown is an out of bounds exception, meaning that a item in a position outside of the array is being called. In this case, this occurs here:
   > if (ch == word.charAt(i + 1))
   
@@ -35,6 +35,7 @@ For some reason, the methods are not working properly, sometimes they return the
   > for (int i = 0; i < word.length()-1; i++)
   
   This was tested multiple times and worked with the following "words": Hollow, vroom, vimm. In all cases, the adjacent letters were correctly identified.
+  
 #### Why the method _countGroupsRepeatedCharacters_ returns 3 in one case when it should be 4?
   This function will not work with words in which the first letter is a repeated group. For example, mississippi will correctly give out 3 groups, but eel and llama will return 0. This is due to the fact that in the for loop, int i is made equal to 1, thus ignoring the first character of the input. The solution would be making int i = 0, like so:
   > for (int i = 0; i < word.length() - 1; i++)
@@ -69,6 +70,7 @@ In this case this code looks really simple. When the "d" reaches the value 1.0, 
 
 #### Why does not appear a message indicating that "d is 1"?
   The issue here is the way double and float values are handled by java. The values are derived from the translation of fractions into binary, and the process through which this is done causes small errors, which result in an innacurate number. Through the use of breakpoints one can see that these errors accumulate, so for example instead of d being equal to 3.0 after the third attempt, it is 3.0000000000004. This means the if(d != 1.0) will never be fulfilled, as d will be equal to 1.09999999999, rather than 1.0.
+  
 #### How will you fix it?
   The solution is to not use doubles (or floats, though they are not relevant to this exercise), and instead use a class called BigDecimal from java.math. This class allows one to control the decimal places that are considered, so while the number may still be inaccurate if left unchecked, the accumulated error can be mitigated by using BigDecimal.setScale, which allows rounding, unlike primitive types such as float and double. Here is the code which functioned correctly (one must remember to import the BigDecimal class):
   > public class Main {
