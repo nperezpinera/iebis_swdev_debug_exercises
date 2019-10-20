@@ -60,7 +60,7 @@ The boards can contain _Element_ objects, and since _Space_ and _Mine_ inherits 
 We have two boards of different size and place a different number of mines on each one. But in the second case it takes longer to place all the mines.
 
 #### Why placing less bombs takes longer in the second case?
-	Due to the way the mining function works, each board has to be randomly iterated through in order to set the mines, with repeats not being allowed. With the smaller board, the chances of a value randomly repeating itself is higher, and therefore it takes exponentially longer. Since the increase is exponential, even with a lower number of mines to set, the net result is a longer time being spent setting the mines.
+Due to the way the mining function works, each board has to be randomly iterated through in order to set the mines, with repeats not being allowed. With the smaller board, the chances of a value randomly repeating itself is higher, and therefore it takes exponentially longer. Since the increase is exponential, even with a lower number of mines to set, the net result is a longer time being spent setting the mines.
 
 #### Knowing that usually there are going to be more bombs than spaces in the final boards, how would you change the method _minningTheBoard_ to be more efficient?
 	
